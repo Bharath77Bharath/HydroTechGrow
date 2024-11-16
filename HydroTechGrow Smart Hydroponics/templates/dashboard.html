@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Hydroponics Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</head>
+<body>
+    <h1>Smart Hydroponics Dashboard</h1>
+    <div class="overview">
+        <h2>Sensor Overview</h2>
+        <ul>
+            <li>Temperature: {{ data.temperature }} °C</li>
+            <li>pH Level: {{ data.pH }}</li>
+            <li>TDS Level: {{ data.tds }} ppm</li>
+            <li>Humidity: {{ data.humidity }}%</li>
+            <li>Water Level: {{ data.water_level }}</li>
+        </ul>
+    </div>
+    <nav>
+        <h3>Sensor Pages</h3>
+        <a href="/temperature">Temperature</a> |
+        <a href="/ph">pH</a> |
+        <a href="/tds">TDS</a> |
+        <a href="/humidity">Humidity</a> |
+        <a href="/water-level">Water Level</a>
+    </nav>
+    <nav>
+        <h3>Other Features</h3>
+        <a href="/pumps">Pump Control</a> |
+        <a href="/image-processing">Image Processing</a>
+    </nav>
+</body>
+</html>

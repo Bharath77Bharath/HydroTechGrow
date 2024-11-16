@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pump Control</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Pump Control</h1>
+    <button onclick="controlPump('start')">Start Pump</button>
+    <button onclick="controlPump('stop')">Stop Pump</button>
+    <script>
+        function controlPump(action) {
+            fetch('/pumps', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: action }),
+            })
+            .then(response => response.json())
+            .then(data => alert(`Pump ${data.action}ed successfully!`))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>
+
